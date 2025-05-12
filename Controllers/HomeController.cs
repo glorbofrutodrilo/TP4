@@ -15,6 +15,34 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        Juego.IniciarJuego();
         return View();
+    }
+    public IActionResult arriesgarLetra(char letra)
+    {
+        List<char> letrasUsadas = new List<char>();
+
+        if (letrasUsadas.Contains(letra) == false)
+        {
+            bool esta = Juego.compararLetra(letra);
+            
+            if (!esta)
+            {
+                ViewBag.NoEsta = "La letra no esta";
+            }
+            else
+            {
+                for (int i = 0;i< Juego.letraspalabra; i++)
+                {
+                    
+                }
+            }
+            letrasUsadas.Add(letra);
+        }
+        else
+        {
+            ViewBag.Error = "Error";
+        }
+        
     }
 }

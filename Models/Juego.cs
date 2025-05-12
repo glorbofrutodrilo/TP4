@@ -1,6 +1,12 @@
 class Juego
 {
-string[] palabrasAhorcado = new string[]
+    public static char [] palabraAAdivinar {get;private set;}
+    public static int letraspalabra {get;private set;}
+
+    public static string[] palabrasAhorcado {get;private set;}
+    public static void IniciarJuego()
+    {
+        palabrasAhorcado = new string[]    
         {
             "abeja", "abismo", "abogado", "abono", "abrazo", "abrigo", "abrir", "abuelo", "aceite", "acera",
             "acero", "acierto", "aclarar", "acoger", "acorde", "actuar", "adicto", "adivina", "adonde", "adorno",
@@ -42,11 +48,11 @@ string[] palabrasAhorcado = new string[]
             "discoteca", "diseño", "disfraz", "distinto", "diva", "dividir", "doblar", "doctor", "documento", "dólar",
             "dolor", "domingo", "donar", "dormir", "dorso", "dragón", "duelo", "duende", "dulce", "duro"
         };
-    public static void IniciarJuego(string[] palabrasAhorcado)
-    {
         Random rnd = new Random();
         int numeroAleatorio = rnd.Next(0, 521);
-        string palabra = palabrasAhorcado[numeroAleatorio];
+        palabraAAdivinar = palabrasAhorcado[numeroAleatorio].ToCharArray();
+        letraspalabra = palabraAAdivinar.Length;
+        
     }
 
     public static bool Gano(){
@@ -56,4 +62,18 @@ string[] palabrasAhorcado = new string[]
     public static bool Perdio(){
         return false;
     }
+    public static bool compararLetra(char letra)
+    {
+        bool esta = false;
+        if (palabraAAdivinar.Contains(letra)==true)
+        {
+            esta = true;
+           
+        }
+        else{
+            esta = false;
+        }
+        return esta;
+    }
+
 }
