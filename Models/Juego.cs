@@ -2,8 +2,10 @@ class Juego
 {
     public static char [] palabraAAdivinar {get;private set;}
     public static int letraspalabra {get;private set;}
-
+    public static int intentos {get;private set;}
     public static string[] palabrasAhorcado {get;private set;}
+    public static List<char> letrasUsadas {get;private set;}
+
     public static void IniciarJuego()
     {
         palabrasAhorcado = new string[]    
@@ -48,11 +50,13 @@ class Juego
             "discoteca", "diseño", "disfraz", "distinto", "diva", "dividir", "doblar", "doctor", "documento", "dólar",
             "dolor", "domingo", "donar", "dormir", "dorso", "dragón", "duelo", "duende", "dulce", "duro"
         };
+        letrasUsadas= new List<char>();
+
         Random rnd = new Random();
         int numeroAleatorio = rnd.Next(0, 521);
+        intentos = 10;
         palabraAAdivinar = palabrasAhorcado[numeroAleatorio].ToCharArray();
         letraspalabra = palabraAAdivinar.Length;
-        
     }
 
     public static bool Gano(){
@@ -68,12 +72,57 @@ class Juego
         if (palabraAAdivinar.Contains(letra)==true)
         {
             esta = true;
-           
+            for(int i = 0; i<letraspalabra; i++)
+            {
+                if(palabraAAdivinar[i] != letra)
+                {
+                    palabraAAdivinar[i] ='_';
+                    intentos ++;
+                }
+                else
+                {
+                    palabraAAdivinar[i]=letra;
+                }
+            }           
         }
-        else{
-            esta = false;
+        if(esta==false)
+        {
+            intentos++;
         }
         return esta;
     }
+    public static bool letraUsada(char letra)
+    {
+        bool seUso= false;
+        if (letrasUsadas.Contains(letra))
+        {
+            seUso = true;
+        }
+        else{
+            seUso = false;
+            letrasUsadas.Add(letra);
+        }
+        return seUso;
+    }
+    public static bool compararPalabra(char [] palabra){
+        bool esta = false;
+    
+        if(palabraAAdivinar == palabra)
+        {
+            esta = true;
+            for(int i = 0; i<letraspalabra; i++)
+            {
+                palabraAAdivinar[i] = palabra[i];
+            }
+
+        }
+        else
+        {
+            intentos ++;
+        }
+
+        return esta;
+    }
+
 
 }

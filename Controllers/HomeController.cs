@@ -20,9 +20,13 @@ public class HomeController : Controller
     }
     public IActionResult arriesgarLetra(char letra)
     {
-        List<char> letrasUsadas = new List<char>();
-
-        if (letrasUsadas.Contains(letra) == false)
+        ViewBag.Intentos = Juego.intentos;
+        ViewBag.Palabra = Juego.palabraAAdivinar;
+         ViewBag.Gano;
+        if (intentos  > 6){
+            ViewBag.Gano=Juego.Perdio();
+        }
+        if (Juego.letraUsada(letra) == false)
         {
             bool esta = Juego.compararLetra(letra);
             
@@ -32,17 +36,32 @@ public class HomeController : Controller
             }
             else
             {
-                for (int i = 0;i< Juego.letraspalabra; i++)
-                {
-                    
-                }
+                ViewBag.Esta = "La letra esta";
             }
-            letrasUsadas.Add(letra);
         }
         else
         {
             ViewBag.Error = "Error";
         }
-        
+        return View();
+    }
+    public IActionResult arriesgarPalabra(char [] palabra)
+    {
+        ViewBag.Palabra = Juego.palabraAAdivinar;
+        ViewBag.Intentos = Juego.intentos;
+        ViewBag.Gano;
+        if (intentos  > 6){
+            ViewBag.Gano=Juego.Perdio();
+        }
+        bool esta = Juego.compararPalabra(palabra);
+         if (!esta)
+            {
+                ViewBag.NoEsta = "La letra no esta";
+            }
+            else
+            {
+                ViewBag.Esta = "La letra esta";
+            }
+        return View();
     }
 }
