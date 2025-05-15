@@ -1,9 +1,14 @@
 ﻿@{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Ahorcado";
 }
 
 <div>
     <h1>Ahorcado</h1>
-    <
+   @foreach (char c in ViewBag.PalabraGuiones as char[])
+    {
+        <p>@c</p>
+    }
+    
 
+   
 </div>

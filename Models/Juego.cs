@@ -1,6 +1,7 @@
 class Juego
 {
     public static char [] palabraAAdivinar {get;private set;}
+    public static char [] guionesAAdivinar {get; private set;}
     public static int letraspalabra {get;private set;}
     public static int intentos {get;private set;}
     public static string[] palabrasAhorcado {get;private set;}
@@ -53,10 +54,16 @@ class Juego
         letrasUsadas= new List<char>();
 
         Random rnd = new Random();
-        int numeroAleatorio = rnd.Next(0, 521);
+        int numeroAleatorio = rnd.Next(0, 20);
         intentos = 10;
-        palabraAAdivinar = palabrasAhorcado[numeroAleatorio].ToCharArray();
+        palabraAAdivinar = palabrasAhorcado[numeroAleatorio].ToCharArray(); 
         letraspalabra = palabraAAdivinar.Length;
+        guionesAAdivinar = new char[palabraAAdivinar.Length];
+        for (int i = 0; i<letraspalabra; i++)
+        {
+            guionesAAdivinar[i] = '_';
+        }
+       
     }
 
     public static bool Gano(){
