@@ -18,8 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = Z:\2025\programacion\TP4
 build_property._RazorSourceGeneratorDebug = 
 
+[Z:/2025/programacion/TP4/Views/Home/Ganaste.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHYW5hc3RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [Z:/2025/programacion/TP4/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[Z:/2025/programacion/TP4/Views/Home/Perdiste.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQZXJkaXN0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [Z:/2025/programacion/TP4/Views/Shared/_Layout.cshtml]

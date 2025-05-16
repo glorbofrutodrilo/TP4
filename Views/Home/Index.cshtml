@@ -1,14 +1,33 @@
 ﻿@{
     ViewData["Title"] = "Ahorcado";
+
 }
 
 <div>
     <h1>Ahorcado</h1>
+   <p>
    @foreach (char c in ViewBag.PalabraGuiones as char[])
     {
-        <p>@c</p>
+        <span> @c </span>
     }
-    
+    </p>
+    <h3>Intentos restantes: @ViewBag.Intentos </h3>
 
+
+    <p>Arriesgar Letra: </p>
+
+    <form action = "@Url.Action("arriesgarLetra")" method="post">
+        letra= <input type= "text" name= "letra" max= "1">
+        <button type="submit">Enviar</button>
+    </form>
+    <p>@ViewBag.Esta </p>
+    <p>Arriesgar Palabra: </p>
+
+    <form action = "@Url.Action("arriesgarPalabra")" method="post">
+        palabra= <input type= "Text" name= "palabra">
+        <button type="submit">Enviar</button>
+    </form>
+    <p>@ViewBag.PalabraEsta </p>
+    
    
 </div>

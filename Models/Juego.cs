@@ -81,20 +81,16 @@ class Juego
             esta = true;
             for(int i = 0; i<letraspalabra; i++)
             {
-                if(palabraAAdivinar[i] != letra)
+                if(palabraAAdivinar[i] == letra)
                 {
-                    palabraAAdivinar[i] ='_';
-                    intentos ++;
+                    guionesAAdivinar[i]=letra;
                 }
-                else
-                {
-                    palabraAAdivinar[i]=letra;
-                }
+              
             }           
         }
         if(esta==false)
         {
-            intentos++;
+            intentos--;
         }
         return esta;
     }
@@ -111,21 +107,21 @@ class Juego
         }
         return seUso;
     }
-    public static bool compararPalabra(char [] palabra){
+    public static bool compararPalabra(string palabra){
         bool esta = false;
     
-        if(palabraAAdivinar == palabra)
+        if(palabraAAdivinar == palabra.ToCharArray())
         {
             esta = true;
             for(int i = 0; i<letraspalabra; i++)
             {
-                palabraAAdivinar[i] = palabra[i];
+                guionesAAdivinar[i] = palabra[i];
             }
-
+        
         }
         else
         {
-            intentos ++;
+            intentos --;
         }
 
         return esta;
